@@ -8,16 +8,18 @@ const almostPrime = (n) => {
     for (let numerator = 2; numerator <= n; numerator++) {
         let count = 0;
         for (let denominator = 2; denominator <= n; denominator++) {
-            if (isPrime(denominator) && numerator % denominator == 0) {
+            if (numerator % denominator == 0 && isPrime(denominator)) {
                 count++
             }
-            if(n == denominator && count == 2) {
+            if (count > 2) {
+                break;
+            }
+            if (n == denominator && count == 2) {
                 output++
             }
         }
 
     }
-
     return output
 }
 
